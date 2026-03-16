@@ -359,6 +359,12 @@ const obs = new IntersectionObserver(es => {
   es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+const params = new URLSearchParams(window.location.search);
+const name = params.get('name');
+if (name) {
+  document.querySelector('.hero h1').innerHTML = name + ',<br>welcome to the <em>table.</em>';
+}
 </script>
 </body>
 </html>
